@@ -9,7 +9,12 @@ name <- (rawData$'Name')
 nationality <- (rawData$'Nationality')
 overallStat <- (rawData$Overall)
 club <- (rawData$'Club')
-position <- (rawData$'Position')
 sprintSpeed <- (rawData$SprintSpeed)
 
-df1 <- data.frame(name, nationality, overallStat, club, position, sprintSpeed)
+#create dataframe
+df1 <- data.frame(name, nationality, overallStat, club, sprintSpeed)
+
+#Remove NA values for sprint speed
+df1 <- df1[!is.na(df1$sprintSpeed),]
+df1 <- df1[order(df1$sprintSpeed, decreasing = TRUE)]
+
