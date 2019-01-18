@@ -15,6 +15,7 @@ df1 <- df1[order(df1$nationality, decreasing = FALSE),]
 
 countries <- split(df1, df1$nationality) #group data by country
 
+country <- unique(df1$nationality)
 average <- vector()
 stdDeviation <- vector()
 maxSpd <- vector()
@@ -25,7 +26,10 @@ for(i in c(1:length(countries))){
   average[i] <- mean(countries[[i]]$sprintSpeed)
   stdDeviation[i] <- sd(countries[[i]]$sprintSpeed)
   maxSpd[i] <- max(countries[[i]]$sprintSpeed)
-  minSpd[i] <- (countries[[i]]$sprintSpeed)
+  minSpd[i] <- min(countries[[i]]$sprintSpeed) 
 }
+
+countryStats <- data.frame(country, average, stdDeviation, maxSpd, minSpd)
+
 
 
