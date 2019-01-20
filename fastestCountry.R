@@ -33,6 +33,15 @@ for(i in c(1:length(countries))){
 }
 
 countryStats <- data.frame(country, numPlayers, average, stdDeviation, maxSpd, minSpd) 
+countryStats <- countryStats[!is.na(countryStats$stdDeviation),] #remove countries with only 1 player
+
+#Tanzania has the highest mean and the lowest standard deviation (but only 3 players) - 11 players minimum
+#Tanzania mean = 82.33333 and Standard Deviation = 1.527525
+
+
+
+
+
 
 
 
